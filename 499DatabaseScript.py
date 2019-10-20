@@ -8,19 +8,20 @@ db = connection['stocks499']
 collection = db['stocks']
 
 def read_document():
-  try:
-    key = raw_input("Enter key: ")
-    value = raw_input("Enter value: ")
+	try:
+		key = raw_input("Enter key: ")
+    		value = raw_input("Enter value: ")
 
-    cursor = collection.find_one({ key : value })
-	for document in cursor:
+    		cursor = collection.find_one({ key : value })
+		
+		for document in cursor:
 		pprint(document)
 
-  except ValidationError as ve:
-    abort(400, str(ve))
+  	except ValidationError as ve:
+    		abort(400, str(ve))
 	
 def main():
-  read_document()
+	read_document()
 
 main()
 
